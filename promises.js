@@ -66,3 +66,25 @@ promisefour.then(function(user){
 }).finally(function(){
     console.log('The promise is either resolved or rejected');
 })
+
+const promisefive = new Promise(function(resolve,reject){
+    setTimeout(function(){
+     const error = true;
+     console.log('Async task 4');
+     if(!error){
+         resolve({username: 'javaScript',email : 'javaScript@gmial.com'})
+     }else{
+         reject('Error: js went wrong')
+     }
+    },1000)
+ })
+
+async function consumePormiseFive(){
+    try{
+        const response = await promisefive
+        console.log(response);
+    }catch{
+        console.log('error');
+    }
+}
+consumePormiseFive()
