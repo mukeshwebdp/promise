@@ -72,9 +72,9 @@ const promisefive = new Promise(function(resolve,reject){
      const error = true;
      console.log('Async task 4');
      if(!error){
-         resolve({username: 'javaScript',email : 'javaScript@gmial.com'})
+        resolve({username: 'javaScript',email : 'javaScript@gmial.com'})
      }else{
-         reject('Error: js went wrong')
+        reject('Error: js went wrong')
      }
     },1000)
  })
@@ -88,3 +88,14 @@ async function consumePormiseFive(){
     }
 }
 consumePormiseFive()
+
+fetch('https://api.github.com/users/mukeshwebdp')
+.then(function(response){
+    return response.json();
+})
+.then(function(data){
+    console.log(data);
+})
+.catch(function(error){
+    console.log(error);
+})
